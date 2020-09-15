@@ -1,4 +1,4 @@
-const question = document.getElementById("questionsAsked"); 
+const question = document.getElementById("questionAsked"); 
 const scoreShown = document.getElementById("score"); 
 
 //Variables for the quiz
@@ -53,3 +53,60 @@ var questions = [
   }
 ]
 
+//Allow correct answers to be worth +10 points
+const scoreNumber = 10; 
+
+function startGame() {
+    counting = 0; 
+    score = 0; 
+    questionsLeft = [...questions];
+    getNewQuestion();
+};
+
+function getNewQuestion() {
+    if (questionsLeft.length === 0 || counting > 5) {
+        localStorage.setItem("mostRecentScore", score);
+        return window.location.assign("highscore.html"); 
+    }
+
+    counting ++; 
+    const questionIndex = Math.floor(Math.random() * questionsLeft.length);
+    currentQuestion = questionsLeft[questionIndex]; 
+    question.innerText = currentQuestion.question; 
+
+    choices.forEach (choice => {
+        var number = choice.dataset["number"]; 
+        choice.innerText = currentQuestion["choice" + number]; 
+    });
+
+    questionsLeft.splice(questionIndex, 1); 
+    acceptingAnswer = true; 
+};
+
+choices.forEach(choice => {
+    choice.addEventListener("click", e => {
+      if(!acceptingAnswer) return; 
+
+      acceptingAnswer = false;
+      const selectedChoice = e.target; 
+      const selectedAnswer = selectedChoice.dataset["number"]; 
+
+      const classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect';
+      
+      if (classToApply === 'correct') {
+        incrementScore(scoreNumber); 
+      }
+  
+  
+      console.log(classToApply); 
+   
+      getNewQuestion(); 
+    }); 
+  });
+  
+  incrementScore = num => {
+    score += num
+    scoreShown.innerText = score; 
+  }; 
+
+startGame(); 
