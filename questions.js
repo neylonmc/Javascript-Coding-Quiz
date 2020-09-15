@@ -113,12 +113,12 @@ choices.forEach(choice => {
 
 startGame(); 
 
-var incomeTicker = 45;
+var seconds = 45;
 
 window.setInterval(function(){
- if (incomeTicker > 0)
-	 incomeTicker--;
-      document.getElementById("timer").innerHTML = "Seconds remaining : " + incomeTicker;
-if (incomeTicker <= 0)
+ if (seconds > 0)
+ seconds--;
+      document.getElementById("timer").innerHTML = "Seconds remaining : " + seconds;
+if (seconds <= 0)
   return window.location.assign("highscore.html");
 }, 1000);
