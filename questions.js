@@ -112,3 +112,13 @@ choices.forEach(choice => {
   }; 
 
 startGame(); 
+
+var incomeTicker = 60;
+
+window.setInterval(function(){
+ if (incomeTicker > 0)
+	 incomeTicker--;
+      document.getElementById("timer").innerHTML = "Seconds remaining : " + incomeTicker;
+if (incomeTicker <= 0)
+	incomeTicker = 60;
+}, 1000);
