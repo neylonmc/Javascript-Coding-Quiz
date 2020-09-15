@@ -68,7 +68,7 @@ function getNewQuestion() {
         localStorage.setItem("mostRecentScore", score);
         return window.location.assign("highscore.html"); 
     }
-
+//Choses a random question to the user so it is not the same question each time. 
     counting ++; 
     const questionIndex = Math.floor(Math.random() * questionsLeft.length);
     currentQuestion = questionsLeft[questionIndex]; 
@@ -78,11 +78,12 @@ function getNewQuestion() {
         var number = choice.dataset["number"]; 
         choice.innerText = currentQuestion["choice" + number]; 
     });
-
+//Gets rid of questions once they are answer. 
     questionsLeft.splice(questionIndex, 1); 
     acceptingAnswer = true; 
 };
 
+// Added a click event which displays if the user is correct or incorrect in console.log and next question is presented once the user picks their answer. 
 choices.forEach(choice => {
     choice.addEventListener("click", e => {
       if(!acceptingAnswer) return; 
@@ -97,13 +98,14 @@ choices.forEach(choice => {
         incrementScore(scoreNumber); 
       }
   
-  
       console.log(classToApply); 
    
       getNewQuestion(); 
     }); 
   });
   
+
+  //Adds 10 points to the users score when they pick the right answer. 
   incrementScore = num => {
     score += num
     scoreShown.innerText = score; 
