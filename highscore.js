@@ -4,8 +4,6 @@ const finalScore = document.getElementById("finalScore");
 const mostRecentScore = localStorage.getItem("mostRecentScore"); 
 finalScore.innerText = mostRecentScore;
 
-const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-console.log(highScores);  
 
 const maxHighScore = 5; 
 
@@ -29,3 +27,5 @@ function saveHighScore (e) {
     localStorage.setItem("highScores", JSON.stringify(highScores)); 
  
 };  
+
+

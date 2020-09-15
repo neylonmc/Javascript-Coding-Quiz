@@ -16,7 +16,7 @@ var questionsLeft = [];
 //Questions to be asked
 var questions = [
     {
-    question: "What are considering looping structures in Javascript?",
+    question: "What are considered looping structures in Javascript?",
     choice1: "For Loop", 
     choice2: "While Loop",
     choice3: "Do-While Loops",
@@ -39,7 +39,7 @@ var questions = [
   }, {
     question: "Which of the following is the correct syntax to print a page using Javascript?",
     choice1: "localstorage.print()",
-    choice2: "document.pring()",
+    choice2: "document.print()",
     choice3: "console.log()",
     choice4: "window.print()",
     answer: 4 
