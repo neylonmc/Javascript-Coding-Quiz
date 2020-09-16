@@ -45,7 +45,7 @@ var questions = [
     choice4: "window.print()",
     answer: 4 
   }, {
-    question: "A very useful tool used during development and debugging for printing content to the deburrger is: ",
+    question: "A very useful tool used during development and debugging for printing content to the debugger is: ",
     choice1: "Javascript",
     choice2: "terminal/bash",
     choice3: "for loops",
@@ -97,7 +97,9 @@ choices.forEach(choice => {
       
       if (classToApply === 'correct') {
         incrementScore(scoreNumber); 
-      };
+      } else {
+        seconds -= 10; 
+      }
       console.log(classToApply); 
    
       getNewQuestion(); 
@@ -114,6 +116,9 @@ choices.forEach(choice => {
 startGame(); 
 
 var seconds = 45;
+var past = 0; 
+
+
 
 window.setInterval(function() {
 
