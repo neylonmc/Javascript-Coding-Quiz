@@ -4,17 +4,18 @@ const finalScore = document.getElementById("finalScore");
 const mostRecentScore = localStorage.getItem("mostRecentScore"); 
 finalScore.innerText = mostRecentScore;
 
+//Store Local Data from High Scores
 const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 console.log(highScores);
 
-const maxHighScore = 5; 
+
 
 finalScore.innerText = mostRecentScore; 
 
 initials.addEventListener('keyup', () => {
     saveButton.disabled = !initials.value; 
 });
-
+//Save High Score and sort them from best to worst. 
 function saveHighScore (e) {
     console.log("saved");
 
@@ -24,6 +25,7 @@ function saveHighScore (e) {
     };
     highScores.push(score); 
     highScores.sort( (a,b) => b.score - a.score); 
+    //Only display top 5 scores
     highScores.splice(5); 
 
     localStorage.setItem("highScores", JSON.stringify(highScores)); 
