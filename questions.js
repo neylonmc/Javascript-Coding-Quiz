@@ -12,6 +12,7 @@ var acceptingAnswer = false;
 var score = 0; 
 var counting = 0; 
 var questionsLeft = []; 
+timeElapsed = 0;
 
 //Questions to be asked
 var questions = [
@@ -96,8 +97,7 @@ choices.forEach(choice => {
       
       if (classToApply === 'correct') {
         incrementScore(scoreNumber); 
-      }
-  
+      };
       console.log(classToApply); 
    
       getNewQuestion(); 
@@ -115,10 +115,13 @@ startGame();
 
 var seconds = 45;
 
-window.setInterval(function(){
+window.setInterval(function() {
+
  if (seconds > 0)
  seconds--;
       document.getElementById("timer").innerHTML = "Seconds remaining : " + seconds;
 if (seconds <= 0)
   return window.location.assign("highscore.html");
 }, 1000);
+
+
