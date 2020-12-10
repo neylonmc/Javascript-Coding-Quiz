@@ -44,5 +44,8 @@ N/A
 N/A 
   
 ## Questions? Contact Me
-  GitHub: [neylonmc]("https://github.com/neylonmc")
-  Email: [neylonmc@gmail.com]("mailto:neylonmc@gmail.com") 
+  - Github: [Meaghan Neylon](https://github.com/neylonmc "Visit Meaghan's GitHub")
+
+  - Email: [neylonmc@gmail.com]("mailto:neylonmc@gmail.com") 
+
+  
